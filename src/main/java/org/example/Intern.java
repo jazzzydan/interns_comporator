@@ -5,10 +5,14 @@ import java.util.Comparator;
 public record Intern(String firstName, String lastName, int age, Food bestFood) {
 
     public static Comparator<Intern> byFirstName() {
+        return (nr1, nr2) -> nr1.firstName.compareTo(nr2.firstName);
+    }
+
+    public static Comparator<Intern> byLastName() {
         return new Comparator<Intern>() {
             @Override
             public int compare(Intern nr1, Intern nr2) {
-                return nr1.firstName.compareTo(nr2.firstName);
+                return nr1.lastName.compareTo(nr2.lastName);
             }
         };
     }
